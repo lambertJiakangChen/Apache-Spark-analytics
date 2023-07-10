@@ -24,19 +24,19 @@ docker exec streaming_spark_1 spark-submit /streaming/spark_app.py
 ```
 ## Sparking Streaming Application
 
-1. data_source.py service uses Python programing language, which collects information about the most recently-pushed repositories that use any of the three programming languages as the primary coding language through GitHub API. The Python scripts collect and push the new data to Spark at an interval of around 15 seconds, the scripts print the data being sent to Spark using the `print()` function. (The three default languages are JAVA, Python, and C#, You can modify by yourself in spark_app.py from line 27 to 31 and change the following endpoint to a specific programming language you want.)
+1. `data_source.py` service uses Python programing language, which collects information about the most recently-pushed repositories that use any of the three programming languages as the primary coding language through GitHub API. The Python scripts collect and push the new data to Spark at an interval of around 15 seconds, the scripts print the data being sent to Spark using the `print()` function. (The three default languages are JAVA, Python, and C#, You can modify by yourself in `data_source.py` from line 27 to 31 and change the following endpoint to a specific programming language you want.)
 ```
 https://api.github.com/search/repositories?q=+language:{$Programming Language}&sort=updated&order=desc&per_page=50
 ```
 
-2. spark_app.py receives the streaming data, divides it into batches at an interval of 60 seconds (batch duration is 60 seconds), and performs the following four analysis tasks.
+2. `spark_app.py` receives the streaming data, divides it into batches at an interval of 60 seconds (batch duration is 60 seconds), and performs the following four analysis tasks.
    1. Compute the total number of the collected repositories since the start of the streaming application for each of the three programming languages. Each repository should be counted only once.
    2. Compute the number of the collected repositories with changes pushed during the last 60 seconds. Each repository should be counted only once during a batch interval (60 seconds).
    3. Compute the average number of stars of all the collected repositories since the start of the streaming application for each of the three programming languages. Each repository counts towards the result only once.
    4. Find the top 10 most frequent words in the description of all the collected repositories since the start of the streaming application for each of the three programming languages. Each repository counts towards the result only once. 
    5. Print the analysis results for each batch.
 
-3. flash_app.py, a web service listening on port 5000, which receives the analysis results from Spark and visualizes them in real-time. The web service runs a dashboard web application that includes:
+3. `flash_app.py`, a web service listening on port 5000, which receives the analysis results from Spark and visualizes them in real-time. The web service runs a dashboard web application that includes:
     1. Three numbers that tell the total number of the collected repositories since the start of the streaming application for each of the three programming languages in real-time (requirement 3(i)). The numbers are updated every 60 seconds.
     2. A real-time line chart that shows the number of the recently-pushed repositories during each batch interval (60 seconds) for each of the three programming languages (requirement 3(ii)). The chart should be properly labeled, where the time is on the x-axis and the count is on the y-axis. The chart is updated every 60 seconds.
     3. A real-time bar plot that shows the average number of stars of all the collected repositories since the start of the streaming application for each of the three programming languages (requirement 3(iii)). The bar plot should be properly labeled and updated every 60 seconds.
