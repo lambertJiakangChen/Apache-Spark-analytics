@@ -44,8 +44,6 @@ services:
       - ./:/streaming
   data-source:
     image: eecs4415/python
-    environment:
-      - TOKEN=dummyvalue
     volumes:
       - ./app:/app
     command: python3.9 -u /app/github_stream/data_source.py
