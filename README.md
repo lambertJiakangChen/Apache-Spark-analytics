@@ -30,10 +30,10 @@ https://api.github.com/search/repositories?q=+language:{$Programming Language}&s
 ```
 
 2. `spark_app.py` receives the streaming data, divides it into batches at an interval of 60 seconds (batch duration is 60 seconds), and performs the following four analysis tasks.
-   1. Compute the total number of the collected repositories since the start of the streaming application for each of the three programming languages. Each repository should be counted only once.
-   2. Compute the number of the collected repositories with changes pushed during the last 60 seconds. Each repository should be counted only once during a batch interval (60 seconds).
-   3. Compute the average number of stars of all the collected repositories since the start of the streaming application for each of the three programming languages. Each repository counts towards the result only once.
-   4. Find the top 10 most frequent words in the description of all the collected repositories since the start of the streaming application for each of the three programming languages. Each repository counts towards the result only once. 
+   1. Compute the total number of the collected repositories since the start of the streaming application for each of the three programming languages.
+   2. Compute the number of the collected repositories with changes pushed during the last 60 seconds.
+   3. Compute the average number of stars of all the collected repositories since the start of the streaming application for each of the three programming languages.
+   4. Find the top 10 most frequent words in the description of all the collected repositories since the start of the streaming application for each of the three programming languages.
    5. Print the analysis results for each batch.
 
 3. `flash_app.py`, a web service listening on port 5000, which receives the analysis results from Spark and visualizes them in real-time. The web service runs a dashboard web application that includes:
