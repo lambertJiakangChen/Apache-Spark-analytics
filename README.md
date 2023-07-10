@@ -19,6 +19,7 @@ docker-compose up
 ```
 * Get the container ID of the spark master and start streaming
 ```
+docker ps
 docker exec streaming_spark_1 spark-submit /streaming/spark_app.py
 ```
 ## Sparking Streaming Application
