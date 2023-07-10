@@ -2,7 +2,6 @@
 This project involves designing and implementing a big data system that performs real-time streaming analytics for public repositories hosted on GitHub. The system runs a stream processing pipeline, where the live data stream to be analyzed is coming from GitHub API. An Apache Spark cluster processes the data stream. A web application receives the output from Spark and visualizes the analysis result. In this project, I followed the requirements to write codes (Python, Bash, YAML scripts, Dockerfiles) that implement such a streaming process pipeline, which is a multi-container system based on Docker and Docker Compose.
 
 GitHub is one of the most impactful git platforms, which is home to more than 73 million developers and over 200 million repositories, including at least 28 million public repositories as of November 2021. Analysis of software repositories hosted on GitHub has always played a key role in empirical software engineering. The trending analysis based on GitHub repositories and open-source codes, such as top programming languages, prevalent code smells, commit message conventions, and commit frequency distributions, can shed light on the evolution of open-source software and improve DevOps practices. 
-Your task is to build a streaming pipeline that tracks specific programming languages on GitHub and reports their popularity and repository-related statistics in real-time. The following figure depicts the system architecture.
 
 ![System Architecture](System_Architecture.png)
 
