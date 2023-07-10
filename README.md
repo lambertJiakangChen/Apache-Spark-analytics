@@ -24,7 +24,7 @@ docker exec streaming_spark_1 spark-submit /streaming/spark_app.py
 ```
 ## Sparking Streaming Application
 
-1. data_source.py service uses Python programing language, which collects information about the most recently-pushed repositories that use any of the three programming languages as the primary coding language through GitHub API. The Python scripts collect and push the new data to Spark at an interval of around 15 seconds, the scripts print the data being sent to Spark using the `print()` function. (The three default languages are JAVA, Python, and C#, You can modify by yourself in spark_app.py from line 27 to 31 and change the following endpoint to a specific programming language you want.
+1. data_source.py service uses Python programing language, which collects information about the most recently-pushed repositories that use any of the three programming languages as the primary coding language through GitHub API. The Python scripts collect and push the new data to Spark at an interval of around 15 seconds, the scripts print the data being sent to Spark using the `print()` function. (The three default languages are JAVA, Python, and C#, You can modify by yourself in spark_app.py from line 27 to 31 and change the following endpoint to a specific programming language you want.)
 ```
 https://api.github.com/search/repositories?q=+language:{$Programming Language}&sort=updated&order=desc&per_page=50
 ```
