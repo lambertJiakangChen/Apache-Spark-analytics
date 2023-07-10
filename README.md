@@ -12,7 +12,7 @@ Your task is to build a streaming pipeline that tracks specific programming lang
 * Make sure your version Python >= 3.7.0.
 * Change to CRLF line terminators for Windows.
 * GitHub Search API has a rate limit of 30 requests per minute for authenticated requests. The rate limit allows you to make up to 10 requests per minute for unauthenticated requests. Thus, you need a GitHub personal access token (PAT) to make requests in the data source service. You can follow [these steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to get a PAT.
-* Once you obtain one, you can replace the dummy value in `docker-compose.yaml` under data-source environment.
+* Once you obtain PAT, you can replace the URL in `docker-compose.yaml` under data-source environment.
 * You need Docker installed on your local machine to run this project in the Docker-based Hadoop environment. With command as follow
 ```
 docker-compose up
