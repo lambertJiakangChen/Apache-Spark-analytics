@@ -1,55 +1,18 @@
-# EECS4415-Big Data Systems: Project 3 (30%)
-
-**Title:** Real-Time Streaming Analytics with Apache Spark and Python   
-**Out:** March 13, 2023, @ 9:00am EST   
-**Due:** April 9, 2023, by 9:00pm EST
-
 ## Objective
-This project involves designing and implementing a big data system that performs real-time streaming analytics for public repositories hosted on GitHub. The system runs a stream processing pipeline, where the live data stream to be analyzed is coming from GitHub API. An Apache Spark cluster processes the data stream. A web application receives the output from Spark and visualizes the analysis result. In this project, you will follow the requirements to write codes (Python, Bash, YAML scripts, Dockerfiles) that implement such a streaming process pipeline, which is a multi-container system based on Docker and Docker Compose.
-
-## Implementation
-
-* You may clone this repository and implement your solution in the `streaming` folder.
-* The three lines in the *info.txt* file include information about you (first name, last name, and 9-digit student ID). Please update the *info.txt* file accordingly. For example, if your name is *Foo Bar* and your student ID is *123456789*. The *info.txt* file should be as follows:
-    ```
-    Foo
-    Bar
-    123456789
-    ```
-* All scripts are to be written using Python >= 3.7.0.
-* You should use LF line terminators in your scripts.
-
-**Hint:** You can find a [data streaming system](https://github.com/pacslab/big-data-systems-docker/blob/main/spark/app/nine-multiples/) with a similar architecture in Lab 7. It is highly recommended to test your solution in the VM provided in Lab 2. We will use the same environment to evaluate your submission.
-
-## Submission
-You need to zip your repository and submit as one zip file with the name of *project3.zip* on eClass by the due date. The directory structure in *project3.zip* should look like this:
-
-```
-EECS4415_Project_3/
-├─ streaming/
-│  ├─ docker-compose.yaml
-│  ├─ spark_app.py
-│  ├─ ...
-├─ data.txt
-├─ report.pdf
-├─ info.txt
-├─ QA.md
-├─ README.md
-├─ System_Architecture.png
-├─ Webapp.png
-├─ .gitignore
-```
-You should strictly follow the specified directory structure. Implementations that do not follow the correct directory structure will be marked as 0.
-
-**Hint:** Please note that you should not include any output files and Spark checkpoint files in your submission.
-
-
-## Requirements
+This project involves designing and implementing a big data system that performs real-time streaming analytics for public repositories hosted on GitHub. The system runs a stream processing pipeline, where the live data stream to be analyzed is coming from GitHub API. An Apache Spark cluster processes the data stream. A web application receives the output from Spark and visualizes the analysis result. In this project, I followed the requirements to write codes (Python, Bash, YAML scripts, Dockerfiles) that implement such a streaming process pipeline, which is a multi-container system based on Docker and Docker Compose.
 
 GitHub is one of the most impactful git platforms, which is home to more than 73 million developers and over 200 million repositories, including at least 28 million public repositories as of November 2021. Analysis of software repositories hosted on GitHub has always played a key role in empirical software engineering. The trending analysis based on GitHub repositories and open-source codes, such as top programming languages, prevalent code smells, commit message conventions, and commit frequency distributions, can shed light on the evolution of open-source software and improve DevOps practices. 
 Your task is to build a streaming pipeline that tracks specific programming languages on GitHub and reports their popularity and repository-related statistics in real-time. The following figure depicts the system architecture.
 
 ![System Architecture](System_Architecture.png)
+
+## Implementation
+
+* You may clone this repository and implement your solution in the `streaming` folder.
+* All scripts are to be written using Python >= 3.7.0.
+* You should use LF line terminators in your scripts.
+
+## Requirements
 
 The overall requirements are as follows:
 
