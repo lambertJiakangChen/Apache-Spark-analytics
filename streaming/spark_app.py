@@ -163,10 +163,10 @@ def aggregate_avg(value):
 if __name__ == "__main__":
     DATA_SOURCE_IP = "data-source"
     DATA_SOURCE_PORT = 9999
-    sc = SparkContext(appName="NineMultiples")
+    sc = SparkContext(appName="GithubStream")
     sc.setLogLevel("ERROR")
     ssc = StreamingContext(sc, 60)
-    ssc.checkpoint("checkpoint_NineMultiples")
+    ssc.checkpoint("checkpoint_GithubStream")
     data = ssc.socketTextStream(DATA_SOURCE_IP, DATA_SOURCE_PORT)
     numbers = data.flatMap(lambda num: [tuple(map(str,num.split(",")))])
     lang = numbers.map(lambda num:((num[0]), 1)).reduceByKey(lambda x,y:x+y)
